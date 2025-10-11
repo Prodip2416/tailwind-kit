@@ -7,3 +7,4 @@ export { default as Forms } from './Forms';
 export { default as Navigation } from './Navigation';
 export { default as Layout } from './Layout';
 export { default as Feedback } from './Feedback';
+export { default as DragDrop } from './DragDrop';

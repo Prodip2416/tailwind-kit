@@ -12,6 +12,7 @@ import {
   Navigation,
   Layout,
   Feedback,
+  DragDrop,
 } from './pages';
 
 const AppContent = () => {
@@ -114,6 +115,7 @@ const AppContent = () => {
               path="/feedback/badge"
               element={<Feedback feedbackType="badge" />}
             />
+            <Route path="/dragdrop" element={<DragDrop />} />
           </Routes>
         </main>
       </div>
