@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar Styles */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.2), transparent);
+    border-radius: 10px;
+    pointer-events: none;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #2563eb, #7c3aed);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: scale(1.1);
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(180deg, #1d4ed8, #6d28d9);
+  }
+  
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #60a5fa, #a78bfa);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(180deg, #2563eb, #7c3aed);
+  }
+  
+  .scrollbar-thumb-rounded-full::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+  }
+  
+  .scrollbar-track-transparent::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* Smooth scrolling */
+  .scrollbar-thin {
+    scroll-behavior: smooth;
+  }
+  
+  /* Pulse animation for scrollbar */
+  @keyframes scrollbar-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    animation: scrollbar-pulse 2s ease-in-out infinite;
+  }
+  
+  /* Custom scrollbar for Firefox */
+  .scrollbar-thin {
+    scrollbar-color: #3b82f6 #transparent;
+  }
+  
+  .dark .scrollbar-thin {
+    scrollbar-color: #60a5fa #transparent;
+  }
+}

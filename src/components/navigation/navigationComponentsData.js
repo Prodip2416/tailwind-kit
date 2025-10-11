@@ -1,0 +1,80 @@
+export const navigationComponentsData = [
+  {
+    id: 'navbar',
+    name: 'Navbar',
+    description: 'Responsive navigation bar with mobile menu and brand logo',
+    complexity: 'intermediate',
+    features: [
+      'Responsive design',
+      'Mobile hamburger menu',
+      'Brand logo integration',
+      'Active state indicators',
+      'Dark mode support',
+      'Smooth transitions',
+    ],
+    category: 'navigation',
+  },
+  {
+    id: 'breadcrumb',
+    name: 'Breadcrumb',
+    description:
+      'Navigation breadcrumb component for showing current page location',
+    complexity: 'beginner',
+    features: [
+      'Hierarchical navigation',
+      'Current page indicator',
+      'Clickable links',
+      'Accessibility support',
+      'Clean separator design',
+      'Dark mode compatible',
+    ],
+    category: 'navigation',
+  },
+  {
+    id: 'pagination',
+    name: 'Pagination',
+    description:
+      'Complete pagination component with page numbers and navigation controls',
+    complexity: 'intermediate',
+    features: [
+      'Page number display',
+      'Previous/Next buttons',
+      'Results counter',
+      'Responsive design',
+      'Disabled states',
+      'Customizable styling',
+    ],
+    category: 'navigation',
+  },
+  {
+    id: 'tabs',
+    name: 'Tabs',
+    description:
+      'Interactive tab component for organizing content into sections',
+    complexity: 'beginner',
+    features: [
+      'Active tab highlighting',
+      'Smooth transitions',
+      'Content switching',
+      'Keyboard navigation',
+      'Accessible design',
+      'Customizable content',
+    ],
+    category: 'navigation',
+  },
+  {
+    id: 'menu',
+    name: 'Menu',
+    description: 'Dropdown menu component with icons and interactive options',
+    complexity: 'intermediate',
+    features: [
+      'Dropdown functionality',
+      'Icon integration',
+      'Click outside to close',
+      'Hover effects',
+      'Selection feedback',
+      'Responsive positioning',
+    ],
+    category: 'navigation',
+  },
+];
