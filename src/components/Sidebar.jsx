@@ -292,7 +292,8 @@ const Sidebar = () => {
       <div className="p-4 border-b border-gray-200 dark:border-slate-700 flex-shrink-0">
         <div className="flex items-center justify-between">
           {!isCollapsed && (
-            <div className="flex items-center space-x-3">
+           <Link to="/" className="flex items-center space-x-3">
+             <div className="flex items-center space-x-3">
               <div className="h-8 w-8 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">TK</span>
               </div>
@@ -305,6 +306,7 @@ const Sidebar = () => {
                 </p>
               </div>
             </div>
+           </Link>
           )}
           <button
             onClick={toggleSidebar}

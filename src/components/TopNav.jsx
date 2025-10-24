@@ -9,7 +9,37 @@ const TopNav = () => {
   return (
     <nav className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-slate-700/50 sticky top-0 z-50">
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-end items-center h-16">
+        <div className="flex justify-between items-center h-16">
+          {/* Left side - Logo/Brand */}
+          <Link
+            to="/"
+            className="flex items-center space-x-3 group hover:opacity-80 transition-opacity duration-200"
+          >
+            {/* <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+              <svg
+                className="w-5 h-5 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"
+                />
+              </svg>
+            </div>
+            <div className="hidden sm:block">
+              <h1 className="text-xl font-bold text-gray-900 dark:text-blue-100 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors duration-200">
+                TailwindKit
+              </h1>
+              <p className="text-xs text-gray-500 dark:text-blue-300 group-hover:text-gray-700 dark:group-hover:text-blue-200 transition-colors duration-200">
+                UI Component Library
+              </p>
+            </div> */}
+          </Link>
+
           {/* Right side - Theme toggle and User actions */}
           <div className="flex items-center space-x-3">
             {/* Theme Toggle */}

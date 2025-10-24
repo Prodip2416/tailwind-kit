@@ -1,5 +1,4 @@
 import React from 'react';
-import FeedbackComponent from '../components/feedback/Feedback';
 import FeedbackElementRenderer from '../components/feedback/FeedbackElementRenderer';
 import { feedbackComponentsData } from '../components/feedback/feedbackComponentsData';
 
@@ -94,7 +93,90 @@ const Feedback = ({ feedbackType }) => {
     );
   }
 
-  return <FeedbackComponent feedbackType={feedbackType} />;
+  // Show overview when no specific component is selected
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6">
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-blue-100 mb-2">
+                  Feedback Components
+                </h2>
+                <p className="text-gray-600 dark:text-blue-200">
+                  Interactive components for user feedback, notifications, and alerts
+                </p>
+              </div>
+            </div>
+
+            {/* Component Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {feedbackComponentsData.map((component) => (
+                <div
+                  key={component.id}
+                  className="bg-gray-50 dark:bg-slate-700 rounded-lg p-4 hover:shadow-md transition-shadow"
+                >
+                  <div className="flex items-center space-x-3 mb-3">
+                    <span className="text-2xl">{component.icon}</span>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-blue-100">
+                        {component.name}
+                      </h3>
+                      <span
+                        className={`px-2 py-1 text-xs font-medium rounded-full ${getComplexityColor(
+                          component.complexity
+                        )}`}
+                      >
+                        {component.complexity}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600 dark:text-blue-200 mb-3">
+                    {component.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1 mb-3">
+                    {component.features.slice(0, 3).map((feature, index) => (
+                      <span
+                        key={index}
+                        className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-md"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                    {component.features.length > 3 && (
+                      <span className="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-xs rounded-md">
+                        +{component.features.length - 3} more
+                      </span>
+                    )}
+                  </div>
+                  <a
+                    href={component.href}
+                    className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 text-sm font-medium"
+                  >
+                    View Component
+                    <svg
+                      className="w-4 h-4 ml-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Feedback;
