@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { SidebarProvider, useSidebar } from './contexts/SidebarContext';
 import TopNav from './components/TopNav';
@@ -35,6 +35,8 @@ const AppContent = () => {
         <main className="flex-1 overflow-auto">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/tailwind-kit/" element={<Navigate to="/" replace />} />
+            <Route path="/tailwind-kit" element={<Navigate to="/" replace />} />
             <Route path="/inputs" element={<Inputs />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/data-display" element={<DataDisplay />} />
