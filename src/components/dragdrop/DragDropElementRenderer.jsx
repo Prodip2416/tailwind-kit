@@ -164,8 +164,13 @@ const DragDropElementRenderer = ({
   ]);
 
   const handleFilesAccepted = (acceptedFiles, rejectedFiles) => {
-    console.log('Accepted files:', acceptedFiles);
-    console.log('Rejected files:', rejectedFiles);
+    // Handle accepted and rejected files
+    if (acceptedFiles.length > 0) {
+      // Files accepted successfully
+    }
+    if (rejectedFiles.length > 0) {
+      // Some files were rejected
+    }
   };
 
   switch (componentId) {

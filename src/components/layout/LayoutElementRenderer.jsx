@@ -1,5 +1,6 @@
 import React from 'react';
-import { Header, Footer, Sidebar, Grid, Container, Card } from './index';
+import { Header, Footer, Grid, Container, Card } from './index';
+import Sidebar from '../Sidebar';
 
 const LayoutElementRenderer = ({ layoutType }) => {
   const renderLayoutComponent = (type) => {

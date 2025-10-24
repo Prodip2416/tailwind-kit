@@ -1,17 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Popover = () => {
   const [activeExample, setActiveExample] = useState(0);
   const [showCode, setShowCode] = useState(false);
   const [copied, setCopied] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
+  const popoverRef = useRef(null);
+  const popoverRef2 = useRef(null);
+  const popoverRef3 = useRef(null);
+
+  // Handle click outside to close popover
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popoverRef.current && !popoverRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+      if (popoverRef2.current && !popoverRef2.current.contains(event.target)) {
+        setIsOpen2(false);
+      }
+      if (popoverRef3.current && !popoverRef3.current.contains(event.target)) {
+        setIsOpen3(false);
+      }
+    };
+
+    if (isOpen || isOpen2 || isOpen3) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen, isOpen2, isOpen3]);
 
   const examples = [
     {
       name: 'Default Popover',
       component: (
         <div className="space-y-4">
-          <div className="relative inline-block text-left">
+          <div className="relative inline-block text-left" ref={popoverRef}>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-slate-600 hover:bg-gray-50 dark:hover:bg-slate-700 px-4 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -31,7 +59,7 @@ const Popover = () => {
             </button>
 
             {isOpen && (
-              <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div className="absolute right-0 z-50 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <div className="py-1">
                   <a
                     href="#"
@@ -69,16 +97,16 @@ const Popover = () => {
       name: 'Card Popover',
       component: (
         <div className="space-y-4">
-          <div className="relative inline-block text-left">
+          <div className="relative inline-block text-left" ref={popoverRef2}>
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen2(!isOpen2)}
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
             >
               Show Details
             </button>
 
-            {isOpen && (
-              <div className="absolute left-0 z-10 mt-2 w-80 origin-top-left rounded-lg bg-white dark:bg-slate-800 shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+            {isOpen2 && (
+              <div className="absolute left-0 z-50 mt-2 w-80 origin-top-left rounded-lg bg-white dark:bg-slate-800 shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <div className="p-4">
                   <div className="flex items-start">
                     <div className="flex-shrink-0">
@@ -127,16 +155,16 @@ const Popover = () => {
       name: 'Form Popover',
       component: (
         <div className="space-y-4">
-          <div className="relative inline-block text-left">
+          <div className="relative inline-block text-left" ref={popoverRef3}>
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen3(!isOpen3)}
               className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors"
             >
               Quick Add
             </button>
 
-            {isOpen && (
-              <div className="absolute right-0 z-10 mt-2 w-72 origin-top-right rounded-lg bg-white dark:bg-slate-800 shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+            {isOpen3 && (
+              <div className="absolute right-0 z-50 mt-2 w-72 origin-top-right rounded-lg bg-white dark:bg-slate-800 shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <div className="p-4">
                   <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
                     Quick Add Item
@@ -207,14 +235,14 @@ const Popover = () => {
                     <div className="flex justify-end space-x-2 pt-4">
                       <button
                         type="button"
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => setIsOpen3(false)}
                         className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-md transition-colors"
                       >
                         Cancel
                       </button>
                       <button
                         type="submit"
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => setIsOpen3(false)}
                         className="px-3 py-2 bg-green-600 text-white text-sm font-medium rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                       >
                         Add Item

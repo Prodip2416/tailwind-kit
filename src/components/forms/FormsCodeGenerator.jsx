@@ -160,7 +160,7 @@ const ValidationForm = () => {
 
     // If no errors, submit the form
     if (Object.keys(newErrors).length === 0) {
-      console.log('Form submitted:', formData);
+      // Form submitted successfully
       alert('Form submitted successfully!');
     }
   };

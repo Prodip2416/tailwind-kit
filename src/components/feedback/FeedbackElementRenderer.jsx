@@ -17,7 +17,7 @@ const FeedbackElementRenderer = ({ feedbackType }) => {
       case 'badge':
         return <Badge />;
       default:
-        return <div>Component not found</div>;
+        return <div className="text-red-500">Component not found for type: {feedbackType}</div>;
     }
   };
 

@@ -5,7 +5,7 @@ import { useSidebar } from '../contexts/SidebarContext';
 const Sidebar = () => {
   const { isCollapsed, toggleSidebar } = useSidebar();
   const [expandedCategories, setExpandedCategories] = useState(
-    new Set(['inputs'])
+    new Set(['inputs', 'feedback', 'dragdrop'])
   );
   const location = useLocation();
   const navigate = useNavigate();
@@ -277,7 +277,8 @@ const Sidebar = () => {
       (category.id === 'navigation' &&
         location.pathname.startsWith('/navigation/')) ||
       (category.id === 'layout' && location.pathname.startsWith('/layout/')) ||
-      (category.id === 'feedback' && location.pathname.startsWith('/feedback/'))
+      (category.id === 'feedback' && location.pathname.startsWith('/feedback/')) ||
+      (category.id === 'dragdrop' && location.pathname.startsWith('/dragdrop'))
     );
   };
 
@@ -337,7 +338,7 @@ const Sidebar = () => {
               onClick={() => handleCategoryClick(category)}
               className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                 isCategoryActive(category)
-                  ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                  ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-200 border-l-4 border-blue-500 dark:border-blue-400'
                   : 'text-gray-700 dark:text-blue-200 hover:bg-gray-100 dark:hover:bg-slate-800'
               }`}
             >
@@ -368,14 +369,15 @@ const Sidebar = () => {
 
             {/* Sub-menu */}
             {!isCollapsed && expandedCategories.has(category.id) && (
-              <div className="ml-6 mt-2 space-y-1">
+              <div className="ml-6 mt-2 space-y-1 border-l-2 border-gray-200 dark:border-slate-700 pl-3">
                 {category.components.map((component, index) => (
                   <Link
                     key={index}
                     to={component.href}
                     className={`block px-3 py-1.5 text-xs rounded-md transition-colors ${
-                      location.pathname === component.href
-                        ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300'
+                      location.pathname + location.hash === component.href || 
+                      (component.href.includes('#') && location.pathname === component.href.split('#')[0] && location.hash === '#' + component.href.split('#')[1])
+                        ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-200 font-semibold border-l-2 border-blue-500 dark:border-blue-400'
                         : 'text-gray-600 dark:text-blue-300 hover:text-gray-900 dark:hover:text-blue-100 hover:bg-gray-50 dark:hover:bg-slate-800'
                     }`}
                   >
