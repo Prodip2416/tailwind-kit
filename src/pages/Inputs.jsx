@@ -7,6 +7,7 @@ import { generateCodeExample } from '../components/inputs/CodeGenerator';
 const Inputs = () => {
   const [selectedComponent, setSelectedComponent] = useState(null);
   const [copied, setCopied] = useState(false);
+  const [codeLanguage, setCodeLanguage] = useState('js');
   const location = useLocation();
 
   const [formData, setFormData] = useState({
@@ -187,56 +188,84 @@ const Inputs = () => {
                       <label className="block text-sm font-medium text-gray-700 dark:text-blue-200">
                         Component Code
                       </label>
-                      <button
-                        onClick={() => {
-                          navigator.clipboard.writeText(
-                            generateCodeExample(selectedComponent)
-                          );
-                          setCopied(true);
-                          setTimeout(() => setCopied(false), 2000);
-                        }}
-                        className={`flex items-center space-x-1 px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
-                          copied
-                            ? 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20'
-                            : 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30'
-                        }`}
-                      >
-                        {copied ? (
-                          <>
-                            <svg
-                              className="w-3 h-3"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M5 13l4 4L19 7"
-                              />
-                            </svg>
-                            <span>Copied!</span>
-                          </>
-                        ) : (
-                          <>
-                            <svg
-                              className="w-3 h-3"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-4 3H9m10 0a2 2 0 012 2v5a2 2 0 01-2 2H7a2 2 0 01-2-2v-5a2 2 0 012-2h3"
-                              />
-                            </svg>
-                            <span>Copy</span>
-                          </>
-                        )}
-                      </button>
+                      <div className="flex items-center gap-2">
+                        <div className="inline-flex rounded-md border border-gray-200 dark:border-slate-600 overflow-hidden">
+                          <button
+                            type="button"
+                            onClick={() => setCodeLanguage('js')}
+                            aria-pressed={codeLanguage === 'js'}
+                            className={`px-2.5 py-1 text-xs font-medium transition-colors ${
+                              codeLanguage === 'js'
+                                ? 'bg-blue-600 text-white'
+                                : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-blue-200 hover:bg-gray-50 dark:hover:bg-slate-700'
+                            }`}
+                          >
+                            JS
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setCodeLanguage('ts')}
+                            aria-pressed={codeLanguage === 'ts'}
+                            className={`px-2.5 py-1 text-xs font-medium transition-colors ${
+                              codeLanguage === 'ts'
+                                ? 'bg-blue-600 text-white'
+                                : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-blue-200 hover:bg-gray-50 dark:hover:bg-slate-700'
+                            }`}
+                          >
+                            TS
+                          </button>
+                        </div>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(
+                              generateCodeExample(selectedComponent, codeLanguage)
+                            );
+                            setCopied(true);
+                            setTimeout(() => setCopied(false), 2000);
+                          }}
+                          className={`flex items-center space-x-1 px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
+                            copied
+                              ? 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20'
+                              : 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30'
+                          }`}
+                        >
+                          {copied ? (
+                            <>
+                              <svg
+                                className="w-3 h-3"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              <span>Copied!</span>
+                            </>
+                          ) : (
+                            <>
+                              <svg
+                                className="w-3 h-3"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m-4 3H9m10 0a2 2 0 012 2v5a2 2 0 01-2 2H7a2 2 0 01-2-2v-5a2 2 0 012-2h3"
+                                />
+                              </svg>
+                              <span>Copy</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
                     </div>
                     <div className="relative flex-1 min-h-0 bg-gray-900 dark:bg-slate-900 rounded-lg border border-gray-700 dark:border-slate-600 overflow-hidden">
                       <div className="absolute top-2 right-2 z-10">
@@ -248,7 +277,9 @@ const Inputs = () => {
                       </div>
                       <div className="h-full overflow-auto p-3">
                         <pre className="text-xs text-gray-100 dark:text-gray-300 font-mono leading-relaxed whitespace-pre-wrap">
-                          <code>{generateCodeExample(selectedComponent)}</code>
+                          <code>
+                            {generateCodeExample(selectedComponent, codeLanguage)}
+                          </code>
                         </pre>
                       </div>
                     </div>
