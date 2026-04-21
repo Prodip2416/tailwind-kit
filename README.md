@@ -4,6 +4,8 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.0-38B2AC.svg)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-4.5.3-646CFF.svg)](https://vitejs.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-1.0.1-brightgreen.svg)]()
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-Apr%202026-orange.svg)]()
 
 A comprehensive, production-ready collection of **80+ beautiful UI components** built with React and Tailwind CSS. This project provides a complete component library with live previews, interactive demos, code generation, and copy-paste ready components for modern web applications.
 
@@ -660,7 +662,7 @@ If you have any questions or need help:
 
 ### Upcoming Features
 
-- [ ] **TypeScript Support** - Full TypeScript migration
+- [x] **TypeScript Support** - TS code generation added for Inputs & Notifications (full migration in progress)
 - [ ] **Storybook Integration** - Interactive component documentation
 - [ ] **Testing Suite** - Comprehensive test coverage
 - [ ] **Animation Library** - Advanced animations and transitions
@@ -671,10 +673,8 @@ If you have any questions or need help:
 
 ### Version History
 
-- **v1.0.0** - Initial release with 80+ components
-- **v1.1.0** - Enhanced drag & drop functionality
-- **v1.2.0** - Improved accessibility and dark mode
-- **v1.3.0** - Performance optimizations and new components
+- **v1.0.1** *(Apr 2026)* - TypeScript code generation for Inputs & Notifications, sidebar version bump
+- **v1.0.0** - Initial release with 80+ components, drag & drop, dark mode, full responsive support
 
 ## 🙏 Acknowledgments
 

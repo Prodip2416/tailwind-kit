@@ -7,6 +7,7 @@ import { generateCodeExample } from '../components/notifications/NotificationsCo
 const Notifications = () => {
   const [selectedComponent, setSelectedComponent] = useState(null);
   const [copied, setCopied] = useState(false);
+  const [codeLanguage, setCodeLanguage] = useState('js');
   const location = useLocation();
 
   const [formData, setFormData] = useState({
@@ -120,13 +121,41 @@ const Notifications = () => {
                 <div className="flex flex-col space-y-3 flex-1 min-h-0">
                   <div className="p-3 bg-gray-50 dark:bg-slate-700 rounded-lg border border-gray-200 dark:border-slate-600 flex flex-col h-[300px]">
                     <div className="flex items-center justify-between mb-2 flex-shrink-0">
-                      <label className="block text-sm font-medium text-gray-700 dark:text-blue-200">
-                        Component Code
-                      </label>
+                      <div className="flex items-center gap-3">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-blue-200">
+                          Component Code
+                        </label>
+                        <div className="inline-flex rounded-md border border-gray-200 dark:border-slate-600 overflow-hidden">
+                          <button
+                            type="button"
+                            onClick={() => setCodeLanguage('js')}
+                            aria-pressed={codeLanguage === 'js'}
+                            className={`px-2.5 py-1 text-xs font-medium transition-colors ${
+                              codeLanguage === 'js'
+                                ? 'bg-blue-600 text-white'
+                                : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-blue-200 hover:bg-gray-50 dark:hover:bg-slate-700'
+                            }`}
+                          >
+                            JS
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setCodeLanguage('ts')}
+                            aria-pressed={codeLanguage === 'ts'}
+                            className={`px-2.5 py-1 text-xs font-medium transition-colors ${
+                              codeLanguage === 'ts'
+                                ? 'bg-blue-600 text-white'
+                                : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-blue-200 hover:bg-gray-50 dark:hover:bg-slate-700'
+                            }`}
+                          >
+                            TS
+                          </button>
+                        </div>
+                      </div>
                       <button
                         onClick={() => {
                           navigator.clipboard.writeText(
-                            generateCodeExample(selectedComponent)
+                            generateCodeExample(selectedComponent, codeLanguage)
                           );
                           setCopied(true);
                           setTimeout(() => setCopied(false), 2000);
@@ -184,7 +213,7 @@ const Notifications = () => {
                       </div>
                       <div className="h-full overflow-auto p-3">
                         <pre className="text-xs text-gray-100 dark:text-gray-300 font-mono leading-relaxed whitespace-pre-wrap">
-                          <code>{generateCodeExample(selectedComponent)}</code>
+                          <code>{generateCodeExample(selectedComponent, codeLanguage)}</code>
                         </pre>
                       </div>
                     </div>
