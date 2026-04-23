@@ -395,7 +395,7 @@ const Sidebar = () => {
         {!isCollapsed && (
           <div className="text-xs text-gray-500 dark:text-blue-300 text-center">
             <p>Built with React & Tailwind CSS</p>
-            <p className="mt-1">Last updated: Apr 22, 2025</p>
+            <p className="mt-1">Last updated: Apr 23, 2025</p>
             <p className="mt-1">v1.0.1</p>
           </div>
         )}
