@@ -4,9 +4,7 @@ import { useSidebar } from '../contexts/SidebarContext';
 
 const Sidebar = () => {
   const { isCollapsed, toggleSidebar } = useSidebar();
-  const [expandedCategories, setExpandedCategories] = useState(
-    new Set(['inputs', 'feedback', 'dragdrop'])
-  );
+  const [expandedCategories, setExpandedCategories] = useState(new Set());
   const location = useLocation();
   const navigate = useNavigate();
 

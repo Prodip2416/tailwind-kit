@@ -11,6 +11,7 @@ const DataDisplay = () => {
   const [selectedComponent, setSelectedComponent] = useState(null);
   const [formData, setFormData] = useState({});
   const [copied, setCopied] = useState(false);
+  const [codeLanguage, setCodeLanguage] = useState('js');
 
   useEffect(() => {
     const hash = location.hash.substring(1);
@@ -79,10 +80,37 @@ const DataDisplay = () => {
                   <label className="block text-sm font-medium text-gray-700 dark:text-blue-200">
                     Component Code
                   </label>
+                  <div className="flex items-center gap-2">
+                    <div className="inline-flex rounded-md border border-gray-200 dark:border-slate-600 overflow-hidden">
+                      <button
+                        type="button"
+                        onClick={() => setCodeLanguage('js')}
+                        aria-pressed={codeLanguage === 'js'}
+                        className={`px-2.5 py-1 text-xs font-medium transition-colors ${
+                          codeLanguage === 'js'
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-blue-200 hover:bg-gray-50 dark:hover:bg-slate-700'
+                        }`}
+                      >
+                        JS
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setCodeLanguage('ts')}
+                        aria-pressed={codeLanguage === 'ts'}
+                        className={`px-2.5 py-1 text-xs font-medium transition-colors ${
+                          codeLanguage === 'ts'
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-blue-200 hover:bg-gray-50 dark:hover:bg-slate-700'
+                        }`}
+                      >
+                        TS
+                      </button>
+                    </div>
                   <button
                     onClick={() => {
                       navigator.clipboard.writeText(
-                        generateCodeExample(selectedComponent)
+                        generateCodeExample(selectedComponent, codeLanguage)
                       );
                       setCopied(true);
                       setTimeout(() => setCopied(false), 2000);
@@ -129,6 +157,7 @@ const DataDisplay = () => {
                       </>
                     )}
                   </button>
+                  </div>
                 </div>
                 <div className="relative flex-1 min-h-0 bg-gray-900 dark:bg-slate-900 rounded-lg border border-gray-700 dark:border-slate-600 overflow-hidden">
                   <div className="absolute top-2 right-2 z-10">
@@ -140,7 +169,7 @@ const DataDisplay = () => {
                   </div>
                   <div className="h-full overflow-auto p-3">
                     <pre className="text-xs text-gray-100 dark:text-gray-300 font-mono leading-relaxed whitespace-pre-wrap">
-                      <code>{generateCodeExample(selectedComponent)}</code>
+                      <code>{generateCodeExample(selectedComponent, codeLanguage)}</code>
                     </pre>
                   </div>
                 </div>
