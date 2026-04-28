@@ -21,7 +21,7 @@ const AppContent = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors">
       {/* Sidebar - Fixed position */}
-      <div className="fixed left-0 top-0 z-30">
+      <div className="fixed left-0 top-0 z-[100]">
         <Sidebar />
       </div>
 

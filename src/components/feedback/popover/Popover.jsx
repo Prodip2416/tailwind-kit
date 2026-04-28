@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const Popover = () => {
-  const [activeExample, setActiveExample] = useState(0);
-  const [showCode, setShowCode] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
@@ -59,7 +56,7 @@ const Popover = () => {
             </button>
 
             {isOpen && (
-              <div className="absolute right-0 z-50 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div className="absolute left-0 z-50 mt-2 w-56 origin-top-left rounded-md bg-white dark:bg-slate-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <div className="py-1">
                   <a
                     href="#"
@@ -164,7 +161,7 @@ const Popover = () => {
             </button>
 
             {isOpen3 && (
-              <div className="absolute right-0 z-50 mt-2 w-72 origin-top-right rounded-lg bg-white dark:bg-slate-800 shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div className="absolute left-0 z-50 mt-2 w-72 origin-top-left rounded-lg bg-white dark:bg-slate-800 shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <div className="p-4">
                   <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
                     Quick Add Item
@@ -436,61 +433,15 @@ export default Popover;`;
   };
 
   return (
-    <div className="space-y-6">
-      {/* Example Selector */}
-      <div className="flex space-x-2 mb-4">
-        {examples.map((example, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveExample(index)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              activeExample === index
-                ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200'
-                : 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-            }`}
-          >
-            {example.name}
-          </button>
-        ))}
-      </div>
-
-      {/* Code Toggle */}
-      <div className="flex justify-between items-center">
-        <h3 className="text-lg font-medium text-gray-900 dark:text-white">
-          {examples[activeExample].name}
-        </h3>
-        <div className="flex space-x-2">
-          <button
-            onClick={() => setShowCode(!showCode)}
-            className="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
-          >
-            {showCode ? 'Hide Code' : 'Show Code'}
-          </button>
-          <button
-            onClick={copyToClipboard}
-            className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-              copied
-                ? 'text-green-700 bg-green-100 dark:text-green-200 dark:bg-green-900'
-                : 'text-white bg-blue-600 hover:bg-blue-700'
-            }`}
-          >
-            {copied ? 'Copied!' : 'Copy Code'}
-          </button>
-        </div>
-      </div>
-
-      {/* Active Example */}
-      <div className="border border-gray-200 dark:border-slate-600 rounded-lg overflow-hidden">
-        {!showCode ? (
-          examples[activeExample].component
-        ) : (
-          <div className="bg-gray-900 text-gray-100 p-4 overflow-x-auto">
-            <pre className="text-sm">
-              <code>{generateCode()}</code>
-            </pre>
+    <div className="space-y-4 p-4">
+      {examples.map((example, index) => (
+        <div key={index}>
+          <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">{example.name}</p>
+          <div className="border border-gray-200 dark:border-slate-600 rounded-lg p-3">
+            {example.component}
           </div>
-        )}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };
