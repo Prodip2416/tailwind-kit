@@ -71,7 +71,7 @@ const NavigationCard = ({ component }) => {
       {/* Two-panel: Demo (left) + Code (right) */}
       <div className="flex gap-4">
         {/* Left: Live Demo */}
-        <div className="w-2/5 min-w-0 flex flex-col">
+        <div className="w-2/3 min-w-0 flex flex-col">
           <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md border border-gray-200 dark:border-slate-700 p-4 flex flex-col h-full">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-blue-100 mb-3 flex-shrink-0">
               Live Demo
@@ -86,7 +86,7 @@ const NavigationCard = ({ component }) => {
         </div>
 
         {/* Right: Code */}
-        <div className="w-3/5 min-w-0 flex flex-col">
+        <div className="w-1/3 min-w-0 flex flex-col">
           <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md border border-gray-200 dark:border-slate-700 p-4 flex flex-col h-full min-h-[400px]">
             <div className="flex items-center justify-between mb-2 flex-shrink-0">
               <h3 className="text-sm font-semibold text-gray-900 dark:text-blue-100">
