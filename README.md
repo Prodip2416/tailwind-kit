@@ -660,9 +660,11 @@ If you have any questions or need help:
 
 ## 🚀 Roadmap
 
+> 📄 Full detailed upgrade plans with phases, timelines, and impact analysis → **[FUTURE_PLANS.md](./FUTURE_PLANS.md)**
+
 ### Upcoming Features
 
-- [x] **TypeScript Support** - TS code generation added for Inputs & Notifications (full migration in progress)
+- [x] **TypeScript Support** - TS code generation added across all menus: Inputs, Notifications, Forms, Navigation, Layout, Feedback, and Drag & Drop
 - [ ] **Storybook Integration** - Interactive component documentation
 - [ ] **Testing Suite** - Comprehensive test coverage
 - [ ] **Animation Library** - Advanced animations and transitions
@@ -673,6 +675,7 @@ If you have any questions or need help:
 
 ### Version History
 
+- **v1.0.2** *(Apr 2026)* - TypeScript code generation for all menus (Forms, Navigation, Layout, Feedback, Drag & Drop), two-panel demo/code layout across all sections
 - **v1.0.1** *(Apr 2026)* - TypeScript code generation for Inputs & Notifications, sidebar version bump
 - **v1.0.0** - Initial release with 80+ components, drag & drop, dark mode, full responsive support
 
