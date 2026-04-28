@@ -30,6 +30,24 @@ A comprehensive, production-ready collection of **80+ beautiful UI components** 
 - **Scalability** - Easy to extend and customize for specific needs
 - **Documentation** - Comprehensive docs with live examples
 
+## 📸 Screenshots
+
+### 🖥️ Component Library Overview
+![TailwindKit - Component Library Overview](./docs/screenshots/overview.png)
+*80+ components organized in 8 categories with live demo and code panel side by side*
+
+### 🌙 Dark Mode + Two-Panel Code View
+![TailwindKit - Dark Mode with JS/TS Toggle](./docs/screenshots/dark-mode-code-panel.png)
+*Every component ships with instant JS/TS code generation and one-click copy*
+
+### 🖱️ Drag & Drop — Kanban Board
+![TailwindKit - Kanban Board Demo](./docs/screenshots/dragdrop-kanban.gif)
+*Fully interactive Kanban board with drag & drop reordering built on @dnd-kit*
+
+> 💡 **To add screenshots:** Drop your images into `./docs/screenshots/` matching the filenames above. Use [ShareX](https://getsharex.com/) or [Kap](https://getkap.co/) (macOS) to record GIFs.
+
+---
+
 ## ✨ Key Features
 
 - 🎨 **80+ UI Components** - Comprehensive collection of reusable components
