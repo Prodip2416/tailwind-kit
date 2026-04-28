@@ -4,7 +4,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4.0-38B2AC.svg)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-4.5.3-646CFF.svg)](https://vitejs.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.0.1-brightgreen.svg)]()
+[![Version](https://img.shields.io/badge/Version-1.0.2-brightgreen.svg)]()
 [![Last Updated](https://img.shields.io/badge/Last%20Updated-Apr%202026-orange.svg)]()
 
 A comprehensive, production-ready collection of **80+ beautiful UI components** built with React and Tailwind CSS. This project provides a complete component library with live previews, interactive demos, code generation, and copy-paste ready components for modern web applications.
