@@ -282,7 +282,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-700 transition-all duration-300 flex flex-col h-screen fixed left-0 top-0 z-30 shadow-xl ${
+      className={`bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-700 transition-all duration-300 flex flex-col h-screen fixed left-0 top-0 z-[100] shadow-xl ${
         isCollapsed ? 'w-16' : 'w-64'
       }`}
     >
